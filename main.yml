@@ -1,0 +1,18 @@
+name: senai_automacao
+on:
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - "*.txt"
+jobs:
+  githubactions-senai:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Enviar Imagens para o Disco Compartilhado
+        if: ${{ github.event_name == 'push' && (github.event_name == 'push' && github.ref == 'refs/heads/main') && (contains(github.event.head_commit.modified, 'imagens/') || contains(github.event.head_commit.added, 'imagens/')) }}
+        run: |
+          sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport 172.31.45.47:/ DISCO-COMPARTILHADO
