@@ -1,5 +1,5 @@
 name: imagens-auto
-run-name: ${{ github.actor }} Pipeline deploy 🤷‍♂️🤷‍♂️
+run-name: ${{ github.actor }} Pipeline deploy 👍👍
 on:
   push:
     branches:
@@ -32,6 +32,6 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ssh_key.pem
 
           chmod 600 ssh_key.pem
-          sudo scp -i ssh_key.pem images/* ec2-user@52.205.99.213:/home/ec2-user/COMPARTILHADO
+          scp -i ssh_key.pem images/* ec2-user@52.205.99.213:/home/ec2-user/COMPARTILHADO
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
