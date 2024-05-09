@@ -1,5 +1,5 @@
 name: imagens-auto
-run-name: ${{ github.actor }} Pipeline deploy 😊
+run-name: ${{ github.actor }} Pipeline deploy 🤷‍♂️🤷‍♂️
 on:
   push:
     branches:
